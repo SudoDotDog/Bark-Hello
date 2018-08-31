@@ -6,7 +6,9 @@
 
 import ComponentGhotiCard from './card.component';
 import ComponentGhotiRow from './row.component';
+import ComponentGhotiCardNew from './card-new.component';
 export {
     ComponentGhotiCard as card,
     ComponentGhotiRow as row,
+    ComponentGhotiCardNew as cardNew,
 };

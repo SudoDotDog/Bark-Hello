@@ -5,9 +5,10 @@
  */
 
 import * as React from 'react';
+import { ICard } from '../interface';
 
 export interface IProps {
-
+    card: ICard;
 }
 
 export interface IState {
@@ -20,8 +21,13 @@ class ComponentGhotiCard extends React.Component<IProps, IState> {
     }
 
     public render() {
-        return (<div>
-            <span>Hello, ComponentGhotiCard!</span>
+        return (<div className="card">
+            <button className="link">
+                <div className="left">
+                    <img src={"https://plus.google.com/_/favicon?domain=" + this.props.card.url} alt={this.props.card.url} width="100px" height="100px" />
+                </div>
+                <div className="right">{this.props.card.name}</div>
+            </button>
         </div>);
     }
 }

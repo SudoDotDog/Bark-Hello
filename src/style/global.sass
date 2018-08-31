@@ -13,13 +13,24 @@ html, body, #container, .ghoti-contain
 .row-container
     display: flex
     height: 100%
+    overflow: hidden
     .row
         flex: 1
         height: 100%
+    .open
+        width: 400px
+        transition: 0.5s all
+        display: flex
+    .closed
+        width: 45px
+        transition: 0.5s all
+        display: flex
     .row-right
         width: 40px
         height: 100%
         border-left: 5px solid $navy
+        display: flex
+        flex-direction: column
         button
             transition: 0.2s all
             border: 0px
@@ -28,15 +39,51 @@ html, body, #container, .ghoti-contain
             cursor: pointer
             background-color: $white
             color: $black
+            outline: 0
         button:hover
             background-color: $navy
             color: $white
-
+    
 .inner-row-container
     display: flex
     flex-direction: column
     height: 100%
+    background-color: #efefef
+    overflow: auto
     .row-top
         height: 50px
+        font-size: 25px
+        .info
+            height: 50px
+            padding-top: 15px
+            text-align: center
     .row-bottom
         flex: 1
+        .card
+            background-color: $white
+            height: 100px
+            margin: 10px
+            display: flex
+            align-items: center
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)
+            transition: 0.3s all
+            .info
+                flex: 1
+                text-align: center
+                height: 100%
+                border: 0
+                cursor: pointer
+                outline: 0
+            .link
+                flex: 1
+                border: 0
+                height: 100%
+                cursor: pointer
+                outline: 0
+                display: flex
+                .left
+                    width: 100px
+                .right
+                    flex: 1
+        .card:hover
+            box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)

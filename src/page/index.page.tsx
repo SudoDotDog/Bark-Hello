@@ -14,15 +14,21 @@ export interface IProps {
 
 export interface IState {
     page: IPage;
+    open: boolean;
+    element: JSX.Element;
 }
 
 class PageGhotiIndex extends React.Component<IProps, IState> {
     public readonly state = {
         page: {} as any,
+        open: false,
+        element: null,
     };
 
     public constructor(props) {
         super(props);
+        this.add = this.add.bind(this);
+        this.trigger = this.trigger.bind(this);
     }
 
     componentWillMount() {
@@ -51,19 +57,58 @@ class PageGhotiIndex extends React.Component<IProps, IState> {
         return (<div className="row-container">
             {this.state.page.rows.map((row: IRow, index: number) => {
                 return <div className="row" key={index}>
-                    <Component.row></Component.row>
+                    <Component.row
+                        open={(component: JSX.Element) => {
+                            this.setState({
+                                element: component,
+                            });
+                            this.panel(true);
+                        }}
+                        row={row}
+                        update={(row: IRow) => {
+                            const page = this.state.page;
+                            page.rows[index] = row;
+                            console.log(row);
+                            this.add(page);
+                        }}></Component.row>
                 </div>;
             })}
-            <div className="row-right">
-                <button onClick={() => {
-                    const temp: IPage = this.state.page;
-                    temp.rows.push({
-                        cards: [],
-                    });
-                    this.setState({ page: temp });
-                }}>+</button>
+            <div className={this.state.open ? "open" : "closed"}>
+                <div className="row-right">
+                    <button onClick={() => {
+                        const temp: IPage = this.state.page;
+                        temp.rows.push({
+                            cards: [],
+                        });
+                        this.setState({ page: temp });
+                    }}>+</button>
+                    <button onClick={() => {
+                        localStorage.removeItem('info');
+                    }}>R</button>
+                    <button onClick={this.trigger}>!</button>
+                </div>
+                <div>
+                    {this.state.element}
+                </div>
             </div>
         </div>);
+    }
+
+    protected add(newPage: IPage) {
+        localStorage.setItem('info', JSON.stringify(newPage));
+        this.setState({ page: newPage });
+    }
+
+    protected panel(which: boolean) {
+        this.setState({
+            open: which,
+        });
+    }
+
+    protected trigger() {
+        this.setState({
+            open: !this.state.open,
+        });
     }
 }
 
