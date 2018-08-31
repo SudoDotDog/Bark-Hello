@@ -7,7 +7,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 
-import Hello from './root/hello';
+import Hello from './root/root';
 
 declare const module: any;
 declare const require: any;
@@ -22,7 +22,7 @@ const render: (App: any) => void = (App: any) => {
 
 render(Hello);
 if (module.hot) {
-    module.hot.accept('./root/hello', () => {
-        render(require('./root/hello').default);
+    module.hot.accept('./root/root', () => {
+        render(require('./root/root').default);
     });
 }

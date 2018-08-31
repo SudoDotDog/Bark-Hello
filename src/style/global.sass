@@ -50,6 +50,8 @@ html, body, #container, .ghoti-contain
     height: 100%
     background-color: #efefef
     overflow: auto
+    padding-left: 30px
+    padding-right: 30px
     .row-top
         height: 50px
         font-size: 25px
@@ -85,9 +87,9 @@ html, body, #container, .ghoti-contain
                     width: 100px
                 .right
                     flex: 1
+                    font-size: 18px
         .card:hover
             box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
-
 .input
     display: flex
     width: 340px
@@ -99,3 +101,13 @@ html, body, #container, .ghoti-contain
         width: 100%
         input
             width: auto
+
+::-webkit-scrollbar 
+    width: 0.5em
+    height: 0.5em
+
+::-webkit-scrollbar-thumb 
+    background: $navy
+
+::-webkit-scrollbar-track
+    background: $gray

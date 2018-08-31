@@ -30,6 +30,7 @@ class PageGhotiIndex extends React.Component<IProps, IState> {
         this.add = this.add.bind(this);
         this.trigger = this.trigger.bind(this);
         this.element = this.element.bind(this);
+        this.store = this.store.bind(this);
     }
 
     componentWillMount() {
@@ -99,6 +100,28 @@ class PageGhotiIndex extends React.Component<IProps, IState> {
                         localStorage.removeItem('info');
                     }}>R</button>
                     <button onClick={this.trigger}>!</button>
+                    <button onClick={() => {
+                        let json: string = JSON.stringify(this.state.page, null, 2);
+                        this.element(
+                            <div>
+                                <textarea
+                                    ref={(ref) => {
+                                        ref.value = json;
+                                    }}
+                                    onChange={(event) => json = event.target.value}></textarea>
+                                <button onClick={() => {
+                                    try {
+                                        const parsed = JSON.parse(json);
+                                        this.setState({
+                                            page: parsed,
+                                        }, this.store);
+                                    } catch (err) {
+                                        alert(err);
+                                    }
+                                }}>Change</button>
+                            </div>
+                        );
+                    }}>:D</button>
                 </div>
                 <div>
                     {this.state.element}
@@ -114,12 +137,21 @@ class PageGhotiIndex extends React.Component<IProps, IState> {
         this.panel(true);
     }
 
+    protected store() {
+        localStorage.setItem('info', JSON.stringify(this.state.page));
+    }
+
     protected add(newPage: IPage) {
         localStorage.setItem('info', JSON.stringify(newPage));
         this.setState({ page: newPage });
     }
 
     protected panel(which: boolean) {
+        if(!which){
+            this.setState({
+                element: null,
+            });
+        }
         this.setState({
             open: which,
         });

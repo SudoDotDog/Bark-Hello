@@ -5,8 +5,7 @@
 
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
-import { renderRoutes } from 'react-router-config';
-
+import Index from '../page/index.page';
 import '../style/global.sass';
 
 export interface IProps extends RouteComponentProps<any> {
@@ -15,7 +14,7 @@ export interface IProps extends RouteComponentProps<any> {
 
 class AppRoot extends React.Component<IProps, {}> {
     public render(): JSX.Element {
-        return renderRoutes(this.props.route.routes);
+        return <Index></Index>
     }
 }
 
