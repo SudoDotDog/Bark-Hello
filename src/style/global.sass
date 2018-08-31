@@ -10,43 +10,33 @@ html, body, #container, .ghoti-contain
     padding: 0
     margin: 0
 
-.retriever-grid-layout
+.row-container
+    display: flex
     height: 100%
-    display: grid
-    grid-template-columns: [left] 200px [center] auto [end]
-    grid-template-rows: [top] 100px [middle] auto [foot]
-    grid-template-areas: "logo content" "nav content"
-    background-color: green
+    .row
+        flex: 1
+        height: 100%
+    .row-right
+        width: 40px
+        height: 100%
+        border-left: 5px solid $navy
+        button
+            transition: 0.2s all
+            border: 0px
+            width: 40px
+            height: 50px
+            cursor: pointer
+            background-color: $white
+            color: $black
+        button:hover
+            background-color: $navy
+            color: $white
 
-.retriever-grid-area-a
-    grid-area: logo
-
-.retriever-grid-area-b
-    grid-area: nav
-
-.retriever-grid-area-c
-    grid-area: content
-    overflow: hidden
-
-.retriever-flex-layout
+.inner-row-container
     display: flex
     flex-direction: column
-    flex-wrap: nowrap
-    align-items: flex-start
-
-.retriever-flex-element
-    height: 100px
-
-.retriever-flex-flow-layout
-    display: flex
-    flex-direction: row
-    flex-wrap: wrap
-    height: auto
-
-.retriever-flex-flow-element
-    flex: initial
-    height: 150px
-    width: 50%
-
-.retriever-flex-inner
-    padding: 10px
+    height: 100%
+    .row-top
+        height: 50px
+    .row-bottom
+        flex: 1

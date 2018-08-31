@@ -5,23 +5,64 @@
  */
 
 import * as React from 'react';
+import * as Component from '../component/import';
+import { IPage, IRow } from '../interface';
 
 export interface IProps {
 
 }
 
 export interface IState {
-
+    page: IPage;
 }
 
 class PageGhotiIndex extends React.Component<IProps, IState> {
+    public readonly state = {
+        page: {} as any,
+    };
+
     public constructor(props) {
         super(props);
     }
 
+    componentWillMount() {
+        let storage: IPage | undefined = JSON.parse(localStorage.getItem('info'));
+
+        if (!storage) {
+            console.log('init');
+            let temp: IPage = {
+                rows: [{
+                    cards: [],
+                }],
+            }
+            localStorage.setItem('info', JSON.stringify(temp));
+            storage = temp;
+        }
+
+        this.setState({
+            page: storage,
+        })
+    }
+
     public render() {
-        return (<div>
-            <span>Hello, PageGhotiIndex!</span>
+        if (!this.state.page) {
+            return;
+        }
+        return (<div className="row-container">
+            {this.state.page.rows.map((row: IRow, index: number) => {
+                return <div className="row" key={index}>
+                    <Component.row></Component.row>
+                </div>;
+            })}
+            <div className="row-right">
+                <button onClick={() => {
+                    const temp: IPage = this.state.page;
+                    temp.rows.push({
+                        cards: [],
+                    });
+                    this.setState({ page: temp });
+                }}>+</button>
+            </div>
         </div>);
     }
 }
