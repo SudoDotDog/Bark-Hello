@@ -8,11 +8,13 @@ import * as React from 'react';
 import { IRow, ICard, IPage } from '../interface';
 import Card from './card.component';
 import CardNew from './card-new.component';
+import Input from './input.component';
 
 export interface IProps {
     row: IRow;
     update: (row: IRow) => void;
     open: (component: JSX.Element) => void;
+    close: () => void;
 }
 
 export interface IState {
@@ -27,20 +29,30 @@ class ComponentGhotiRow extends React.Component<IProps, IState> {
     public render() {
         return (<div className="inner-row-container">
             <div className="row-top">
-                <div className="info">1</div>
+                <div className="info">{this.props.row.name}</div>
             </div>
             <div className="row-bottom">
                 {this.props.row.cards.map((card: ICard, index: number) => {
                     return <Card card={card} key={index}></Card>
                 })}
                 <CardNew onClick={()=>{
-                    this.props.open(<div>123</div>);
-                    const row = this.props.row;
-                    row.cards.push({
-                        name: 'google',
-                        url: 'live.com',
-                    });
-                    this.props.update(row);
+                    let name: string = "";
+                    let url: string = "";
+                    this.props.open(
+                        <div>
+                            <Input label="Name" onChange={(value)=>name = value}></Input>
+                            <Input label="URL" onChange={(value)=>url = value}></Input>
+                            <button onClick={()=>{
+                                const row = this.props.row;
+                                row.cards.push({
+                                    name,
+                                    url,
+                                });
+                                this.props.update(row);
+                                this.props.close();
+                            }}>ADD</button>
+                        </div>
+                    );
                 }}></CardNew>
             </div>
         </div>);

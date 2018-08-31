@@ -24,7 +24,7 @@ class ComponentGhotiCard extends React.Component<IProps, IState> {
         return (<div className="card">
             <button className="link">
                 <div className="left">
-                    <img src={"https://plus.google.com/_/favicon?domain=" + this.props.card.url} alt={this.props.card.url} width="100px" height="100px" />
+                    <img src={"https://plus.google.com/_/favicon?domain=" + this.props.card.url} alt={this.props.card.url} />
                 </div>
                 <div className="right">{this.props.card.name}</div>
             </button>

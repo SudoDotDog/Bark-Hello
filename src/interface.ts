@@ -4,6 +4,7 @@ export interface ICard {
 }
 
 export interface IRow {
+    name: string;
     cards: ICard[]
 }
 

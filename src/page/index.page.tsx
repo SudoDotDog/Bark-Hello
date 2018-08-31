@@ -29,6 +29,7 @@ class PageGhotiIndex extends React.Component<IProps, IState> {
         super(props);
         this.add = this.add.bind(this);
         this.trigger = this.trigger.bind(this);
+        this.element = this.element.bind(this);
     }
 
     componentWillMount() {
@@ -39,6 +40,7 @@ class PageGhotiIndex extends React.Component<IProps, IState> {
             let temp: IPage = {
                 rows: [{
                     cards: [],
+                    name: ''
                 }],
             }
             localStorage.setItem('info', JSON.stringify(temp));
@@ -64,6 +66,7 @@ class PageGhotiIndex extends React.Component<IProps, IState> {
                             });
                             this.panel(true);
                         }}
+                        close={() => this.panel(false)}
                         row={row}
                         update={(row: IRow) => {
                             const page = this.state.page;
@@ -76,11 +79,21 @@ class PageGhotiIndex extends React.Component<IProps, IState> {
             <div className={this.state.open ? "open" : "closed"}>
                 <div className="row-right">
                     <button onClick={() => {
-                        const temp: IPage = this.state.page;
-                        temp.rows.push({
-                            cards: [],
-                        });
-                        this.setState({ page: temp });
+                        let name: string = "";
+                        this.element(
+                            <div>
+                                <Component.input label="Name" onChange={(value) => name = value}></Component.input>
+                                <button onClick={() => {
+                                    const temp: IPage = this.state.page;
+                                    temp.rows.push({
+                                        cards: [],
+                                        name,
+                                    });
+                                    this.setState({ page: temp });
+                                    this.panel(false);
+                                }}>ADD</button>
+                            </div>
+                        );
                     }}>+</button>
                     <button onClick={() => {
                         localStorage.removeItem('info');
@@ -92,6 +105,13 @@ class PageGhotiIndex extends React.Component<IProps, IState> {
                 </div>
             </div>
         </div>);
+    }
+
+    protected element(element: JSX.Element) {
+        this.setState({
+            element,
+        });
+        this.panel(true);
     }
 
     protected add(newPage: IPage) {
