@@ -1,4 +1,13 @@
 {
+    "dependencies": {
+        "@sudoo/bark": "^2.1.0",
+        "@sudoo/fetch": "^1.1.0",
+        "@sudoo/neon": "^2.3.0",
+        "@sudoo/react-force": "^1.3.1",
+        "@sudoo/redux": "^1.3.1",
+        "react-router-config": "^4.4.0-beta.6",
+        "react-router-dom": "^4.3.1"
+    },
     "devDependencies": {
         "@sudoo/react-force-dev": "^1.3.1",
         "@sudoo/triforce": "^1.4.0",
@@ -7,13 +16,5 @@
         "@types/react-router-config": "^1.1.1",
         "copy-webpack-plugin": "^5.0.0",
         "react-hot-loader": "^4.7.1"
-    },
-    "dependencies": {
-        "@sudoo/bark": "^2.1.0",
-        "@sudoo/fetch": "^1.1.0",
-        "@sudoo/neon": "^2.3.0",
-        "@sudoo/react-force": "^1.3.1",
-        "react-router-config": "^4.4.0-beta.6",
-        "react-router-dom": "^4.3.1"
     }
 }

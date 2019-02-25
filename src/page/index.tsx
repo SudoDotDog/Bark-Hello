@@ -5,12 +5,11 @@
  */
 
 import * as React from 'react';
-import { Input } from '../component/input.component';
-import { Row } from '../component/row.component';
-import { IPage, IRow } from '../interface';
+import { Input } from '../components/input';
+import { Row } from '../components/row';
 
 export type IndexState = {
-    readonly page: IPage;
+    readonly page: any;
     readonly open: boolean;
     readonly element: React.ReactNode;
 };
@@ -35,11 +34,11 @@ export class Index extends React.Component<{}, IndexState> {
     public componentWillMount() {
 
         const info: string | null = localStorage.getItem('info');
-        let storage: IPage | undefined = info ? JSON.parse(info) : undefined;
+        let storage: any | undefined = info ? JSON.parse(info) : undefined;
 
         if (!storage) {
             console.log('init');
-            const temp: IPage = {
+            const temp: any = {
                 rows: [{
                     cards: [],
                     name: '',
@@ -59,7 +58,7 @@ export class Index extends React.Component<{}, IndexState> {
             return;
         }
         return (<div className="row-container">
-            {this.state.page.rows.map((row: IRow, index: number) => {
+            {this.state.page.rows.map((row: any, index: number) => {
                 return <div className="row" key={index}>
                     <Row
                         open={(component: JSX.Element) => {
@@ -70,7 +69,7 @@ export class Index extends React.Component<{}, IndexState> {
                         }}
                         close={() => this.panel(false)}
                         row={row}
-                        update={(each: IRow) => {
+                        update={(each: any) => {
                             const page = this.state.page;
                             page.rows[index] = each;
                             console.log(each);
@@ -87,7 +86,7 @@ export class Index extends React.Component<{}, IndexState> {
                             <div>
                                 <Input label="Name" onChange={(value) => name = value}></Input>
                                 <button onClick={() => {
-                                    const temp: IPage = this.state.page;
+                                    const temp: any = this.state.page;
                                     temp.rows.push({
                                         cards: [],
                                         name,
@@ -143,7 +142,7 @@ export class Index extends React.Component<{}, IndexState> {
         localStorage.setItem('info', JSON.stringify(this.state.page));
     }
 
-    protected add(newPage: IPage) {
+    protected add(newPage: any) {
         localStorage.setItem('info', JSON.stringify(newPage));
         this.setState({ page: newPage });
     }

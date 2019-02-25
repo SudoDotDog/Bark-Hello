@@ -1,28 +1,37 @@
 /**
  * @author WMXPY
- * @fileoverview Development build entry
+ * @namespace Portal
+ * @description Index
  */
 
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import { AppContainer } from 'react-hot-loader';
-
-import Hello from './root/root';
+import { SudooProvider } from "@sudoo/redux";
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import { AppContainer } from "react-hot-loader";
+import { HashRouter } from "react-router-dom";
+import '../style/common/global.sass';
+import { Entry } from "./entry";
+import { redux } from "./state/store";
 
 declare const module: any;
-declare const require: any;
 
-const render: (App: any) => void = (App: any) => {
+const render: (App: any) => void = (App: any): void => {
+
     ReactDOM.render(
-        <AppContainer>
-            <App />
-        </AppContainer>,
-        document.getElementById('container'));
+        (<AppContainer>
+            <SudooProvider redux={redux}>
+                <HashRouter>
+                    <App />
+                </HashRouter>
+            </SudooProvider>
+        </AppContainer>),
+        document.getElementById("container"));
 };
 
-render(Hello);
+render(Entry);
 if (module.hot) {
-    module.hot.accept('./root/root', () => {
-        render(require('./root/root').default);
+
+    module.hot.accept("./entry", () => {
+        render(require("./entry").default);
     });
 }
