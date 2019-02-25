@@ -5,26 +5,17 @@
  */
 
 import * as React from 'react';
-import { IRow, ICard, IPage } from '../interface';
-import Card from './card.component';
-import CardNew from './card-new.component';
-import Input from './input.component';
+import { ICard, IRow } from '../interface';
+import { Card } from './card.component';
 
-export interface IProps {
-    row: IRow;
-    update: (row: IRow) => void;
-    open: (component: JSX.Element) => void;
-    close: () => void;
-}
+export type RowProps = {
+    readonly row: IRow;
+    readonly update: (row: IRow) => void;
+    readonly open: (component: JSX.Element) => void;
+    readonly close: () => void;
+};
 
-export interface IState {
-
-}
-
-class ComponentGhotiRow extends React.Component<IProps, IState> {
-    public constructor(props) {
-        super(props);
-    }
+export class Row extends React.Component<RowProps> {
 
     public render() {
         return (<div className="inner-row-container">
@@ -33,16 +24,16 @@ class ComponentGhotiRow extends React.Component<IProps, IState> {
             </div>
             <div className="row-bottom">
                 {this.props.row.cards.map((card: ICard, index: number) => {
-                    return <Card card={card} key={index}></Card>
+                    return <Card card={card} key={index}></Card>;
                 })}
-                <CardNew onClick={()=>{
+                {/* <CardNew onClick={() => {
                     let name: string = "";
                     let url: string = "";
                     this.props.open(
                         <div>
-                            <Input label="Name" onChange={(value)=>name = value}></Input>
-                            <Input label="URL" onChange={(value)=>url = value}></Input>
-                            <button onClick={()=>{
+                            <Input label="Name" onChange={(value) => name = value}></Input>
+                            <Input label="URL" onChange={(value) => url = value}></Input>
+                            <button onClick={() => {
                                 const row = this.props.row;
                                 row.cards.push({
                                     name,
@@ -51,12 +42,10 @@ class ComponentGhotiRow extends React.Component<IProps, IState> {
                                 this.props.update(row);
                                 this.props.close();
                             }}>ADD</button>
-                        </div>
+                        </div>,
                     );
-                }}></CardNew>
+                }}></CardNew> */}
             </div>
         </div>);
     }
 }
-
-export default ComponentGhotiRow;

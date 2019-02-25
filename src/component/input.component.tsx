@@ -6,19 +6,13 @@
 
 import * as React from 'react';
 
-export interface IProps {
-    label: string;
-    onChange: (value) => void;
-}
+export type InputProps = {
 
-export interface IState {
+    readonly label: string;
+    readonly onChange: (value: string) => void;
+};
 
-}
-
-class ComponentGhotiInput extends React.Component<IProps, IState> {
-    public constructor(props) {
-        super(props);
-    }
+export class Input extends React.Component<InputProps> {
 
     public render() {
         return (<div className="input">
@@ -33,5 +27,3 @@ class ComponentGhotiInput extends React.Component<IProps, IState> {
         </div>);
     }
 }
-
-export default ComponentGhotiInput;
