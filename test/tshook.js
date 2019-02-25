@@ -1,21 +1,14 @@
-require("ts-node").register({
-    compilerOptions: {
-        sourceMap: true,
-        strict: true,
-        noImplicitReturns: true,
-        noImplicitAny: true,
-        module: "commonjs",
-        experimentalDecorators: true,
-        emitDecoratorMetadata: true,
-        moduleResolution: "node",
-        target: "es6",
-        jsx: "react",
-        lib: [
-            "dom",
-            "es5",
-            "es2015",
-            "es2016",
-            "es2017",
-        ]
-    },
+/**
+ * @author WMXPY
+ * @namespace Hook
+ * @description TS-Hook
+ */
+
+const ts_node = require("ts-node");
+
+process.env = Object.assign(process.env, {
+    NODE_ENV: 'test'
+});
+ts_node.register({
+    project: 'typescript/tsconfig.test.json'
 });

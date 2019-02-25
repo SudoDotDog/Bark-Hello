@@ -5,5 +5,5 @@
 
 --recursive
 
-**/*.test.ts
-**/*.test.tsx
+test/**/*.test.ts
+test/**/*.test.tsx

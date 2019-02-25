@@ -1,9 +1,9 @@
 {
     "manifest_version": 2,
-    "name": "Retriever",
-    "version": "0.0.1",
-    "description": "replace new tab",
-    "author": "wmxpy",
+    "name": "Hello",
+    "version": "0.1.0",
+    "description": ":tennis: Go get it!",
+    "author": "WMXPY",
     "chrome_url_overrides": {
         "newtab": "index.html"
     }
