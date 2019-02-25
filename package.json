@@ -16,7 +16,7 @@
         "@types/enzyme-adapter-react-16": "^1.0.3",
         "@types/mocha": "^5.2.5",
         "@types/react": "^16.4.12",
-        "@types/react-dom": "^16.0.7",
+        "@types/react-dom": "^16.8.2",
         "@types/react-router-config": "^1.0.8",
         "awesome-typescript-loader": "^5.2.0",
         "code": "^5.2.0",
