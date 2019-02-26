@@ -11,7 +11,25 @@ class Store {
 
     @observable
     private _structure: HelloStructure = {
-        panels: [],
+        panels: [{
+            cells: [
+                {
+                    name: 'test',
+                },
+                {
+                    name: 'test2',
+                },
+            ],
+        }, {
+            cells: [
+                {
+                    name: 'test',
+                },
+                {
+                    name: 'test2',
+                },
+            ],
+        }],
     };
 
     @computed

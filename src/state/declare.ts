@@ -6,6 +6,7 @@
 
 export type HelloCell = {
 
+    name: string;
 };
 
 export type HelloPanel = {
