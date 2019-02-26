@@ -5,14 +5,18 @@
  */
 
 import * as React from "react";
+import { Redirect, Route } from "react-router-dom";
+import { Grid } from "./page/grid";
 
 export class Entry extends React.Component {
 
     public render(): JSX.Element {
 
         return (
-            <div>
-            </div>
+            <React.Fragment>
+                <Route path="/" exact render={() => <Redirect to="/grid" />} />
+                <Route path="/grid" component={Grid} />
+            </React.Fragment>
         );
     }
 }
