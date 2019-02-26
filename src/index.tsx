@@ -10,7 +10,7 @@ import * as ReactDOM from "react-dom";
 import { AppContainer } from "react-hot-loader";
 import { HashRouter } from "react-router-dom";
 import '../style/common/global.sass';
-import { Entry } from "./entry";
+import Entry from "./entry";
 import { redux } from "./state/store";
 
 declare const module: any;
