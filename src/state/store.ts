@@ -15,18 +15,46 @@ class Store {
             cells: [
                 {
                     name: 'test',
+                    url: 'google.com',
                 },
                 {
                     name: 'test2',
+                    url: 'google.com',
                 },
             ],
         }, {
             cells: [
                 {
                     name: 'test',
+                    url: 'google.com',
                 },
                 {
                     name: 'test2',
+                    url: 'google.com',
+                },
+                {
+                    name: 'test',
+                    url: 'google.com',
+                },
+                {
+                    name: 'test2',
+                    url: 'google.com',
+                },
+                {
+                    name: 'test',
+                    url: 'google.com',
+                },
+                {
+                    name: 'test2',
+                    url: 'google.com',
+                },
+                {
+                    name: 'test',
+                    url: 'google.com',
+                },
+                {
+                    name: 'test2',
+                    url: 'google.com',
                 },
             ],
         }],

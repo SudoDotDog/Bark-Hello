@@ -14,9 +14,12 @@ import { store } from "../state/store";
 export const Grid: React.FC<{}> = observer(() => {
 
     return <div className={grid}>
-        {store.panels.map((panel: HelloPanel) =>
+        {store.panels.map((panel: HelloPanel, index: number) =>
 
-            <Panel panel={panel}></Panel>,
+            <Panel
+                key={index}
+                panel={panel}
+            />,
         )}
     </div>;
 });

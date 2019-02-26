@@ -19,10 +19,17 @@ export type PanelProps = {
 export const Panel: React.FC<PanelProps> = (props: PanelProps) => {
 
     return <NeonPaper>
-        <NeonTitle>Hello</NeonTitle>
+        <NeonTitle
+            removeBorder
+        >
+            Hello
+        </NeonTitle>
         <div className={panel}>
-            {props.panel.cells.map((cell: HelloCell) =>
-                <Cell cell={cell}></Cell>,
+            {props.panel.cells.map((cell: HelloCell, index: number) =>
+                <Cell
+                    key={index}
+                    cell={cell}
+                />,
             )}
         </div>
     </NeonPaper>;

@@ -1,4 +1,17 @@
+@import '../common/color.sass';
+
 .cell {
 
-    background-color: transparent;
+    flex: 1;
+    min-width: 100px;
+    max-width: 150px;
+    height: 100px;
+    margin: 5px;
+    cursor: pointer;
+    transition: 0.2s all cubic-bezier(0.075, 0.82, 0.165, 1);
+    border: 1px solid $navy;
+
+    &:hover {
+        border: 1px solid $red;
+    }
 }

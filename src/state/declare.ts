@@ -7,6 +7,7 @@
 export type HelloCell = {
 
     name: string;
+    url: string;
 };
 
 export type HelloPanel = {
