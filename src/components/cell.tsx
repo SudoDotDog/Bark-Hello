@@ -4,9 +4,10 @@
  * @description Cell
  */
 
-import * as React from 'react';
+import { NeonDash } from "@sudoo/neon/dash";
+import * as React from "react";
 import { cell } from "../../style/components/cell.scss";
-import { HelloCell } from '../state/declare';
+import { HelloCell } from "../state/declare";
 
 export type CellProps = {
 
@@ -26,7 +27,7 @@ export const Cell: React.FC<CellProps> = (props: CellProps) => {
     const name: string = props.cell.name;
     const url: string = parseUrl(props.cell.url);
 
-    return (<button
+    return (<NeonDash
         onClick={() => window.location.href = url}
         className={cell}>
         <div>
@@ -35,5 +36,5 @@ export const Cell: React.FC<CellProps> = (props: CellProps) => {
                 alt={url} />
         </div>
         <div>{name}</div>
-    </button>);
+    </NeonDash>);
 };

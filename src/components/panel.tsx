@@ -4,11 +4,13 @@
  * @description Panel
  */
 
+import { NeonDash } from "@sudoo/neon/dash";
 import { NeonPaper } from "@sudoo/neon/paper";
 import { NeonTitle } from "@sudoo/neon/typography";
 import * as React from "react";
 import { panel } from "../../style/components/panel.scss";
 import { HelloCell, HelloPanel } from "../state/declare";
+import { editDialogStore } from "../state/dialog";
 import { Cell } from "./cell";
 
 export type PanelProps = {
@@ -31,6 +33,10 @@ export const Panel: React.FC<PanelProps> = (props: PanelProps) => {
                     cell={cell}
                 />,
             )}
+            <NeonDash
+                onClick={() => editDialogStore.open()}>
+                +
+            </NeonDash>
         </div>
     </NeonPaper>;
 };
