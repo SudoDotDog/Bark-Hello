@@ -10,6 +10,7 @@ import { cell } from "../../style/components/cell.scss";
 import { EditDialogResult, editDialogStore } from "../state/dialog";
 
 export type CellNewProps = {
+
     onAdd: (value: EditDialogResult) => void;
 };
 

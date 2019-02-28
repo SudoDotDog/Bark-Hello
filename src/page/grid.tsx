@@ -12,17 +12,21 @@ import { GatherAddName } from "../form/add-name";
 import { HelloPanel } from "../state/declare";
 import { store } from "../state/store";
 
-export const Grid: React.FC<{}> = observer(() => {
+export const Grid: React.FC = observer(() => {
 
-    return <div className={grid}>
-        {store.panels.map((panel: HelloPanel, index: number) =>
+    return (
+        <React.Fragment>
+            <div className={grid}>
+                {store.panels.map((panel: HelloPanel, index: number) =>
 
-            <Panel
-                key={index}
-                panel={panel}
-                position={index}
-            />,
-        )}
-        <GatherAddName />
-    </div>;
+                    <Panel
+                        key={index}
+                        panel={panel}
+                        position={index}
+                    />,
+                )}
+            </div>
+            <GatherAddName />
+        </React.Fragment>
+    );
 });

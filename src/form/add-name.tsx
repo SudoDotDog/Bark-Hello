@@ -17,21 +17,19 @@ export const GatherAddName: React.FC<{}> = observer(() => {
             text: 'Submit',
             onClick: editDialogStore.next,
         }]}
-        form={{
-            structure: {
-                name: {
-                    autofocus: true,
-                    display: 'Name',
-                    type: INPUT_TYPE.TEXT,
-                },
-                url: {
-                    display: 'Link',
-                    type: INPUT_TYPE.TEXT,
-                },
+        structure={{
+            name: {
+                autofocus: true,
+                display: 'Name',
+                type: INPUT_TYPE.TEXT,
             },
-            onChange: (newValue) => editDialogStore.setValue(newValue),
-            value: editDialogStore.current,
+            url: {
+                display: 'Link',
+                type: INPUT_TYPE.TEXT,
+            },
         }}
+        onChange={(newValue) => editDialogStore.setValue(newValue)}
+        value={editDialogStore.current}
         title="Add link"
         blur
         show={editDialogStore.isOpen}
