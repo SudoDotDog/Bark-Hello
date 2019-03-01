@@ -5,7 +5,6 @@
  */
 
 import { NeonGather } from "@sudoo/neon/dialog";
-import { INPUT_TYPE } from "@sudoo/neon/input/declare";
 import { observer } from "mobx-react";
 import * as React from "react";
 import { editDialogStore } from "../state/dialog";
@@ -17,20 +16,11 @@ export const GatherAddName: React.FC<{}> = observer(() => {
             text: 'Submit',
             onClick: editDialogStore.next,
         }]}
-        structure={{
-            name: {
-                autofocus: true,
-                display: 'Name',
-                type: INPUT_TYPE.TEXT,
-            },
-            url: {
-                display: 'Link',
-                type: INPUT_TYPE.TEXT,
-            },
-        }}
+        structure={editDialogStore.structure}
         onChange={(newValue) => editDialogStore.setValue(newValue)}
         value={editDialogStore.current}
-        title="Add link"
+        title={editDialogStore.title}
+        onEnter={editDialogStore.next}
         blur
         show={editDialogStore.isOpen}
     />;

@@ -4,6 +4,7 @@
  * @description Store
  */
 
+import { FromElement } from "@sudoo/neon/form/structure";
 import { action, observable } from "mobx";
 
 export type EditDialogResult = {
@@ -22,8 +23,16 @@ class EditDialogStore {
     @observable
     public current: EditDialogResult = {};
 
+    @observable
+    public title: string = '';
+
+    @observable
+    public structure: Record<string, FromElement> = {};
+
     @action
-    public open(nextFunction: (value: EditDialogResult) => void): void {
+    public open(title: string, structure: any, nextFunction: (value: EditDialogResult) => void): void {
+        this.title = title;
+        this.structure = structure;
         this.current = {};
         this.next = () => {
             this.isOpen = false;
