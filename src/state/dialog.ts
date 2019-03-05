@@ -43,6 +43,11 @@ class EditDialogStore {
     }
 
     @action
+    public close(): void {
+        this.isOpen = false;
+    }
+
+    @action
     public setValue(newValue: any): void {
         this.current = newValue;
     }

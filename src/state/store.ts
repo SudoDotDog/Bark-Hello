@@ -26,7 +26,7 @@ class Store {
 
     @action
     public addCell(panel: number, result: EditDialogResult) {
-        console.log(panel, result);
+
         this._structure.panels[panel] = {
             ...this._structure.panels[panel],
             cells: [
@@ -38,6 +38,17 @@ class Store {
                 },
             ],
         };
+    }
+
+    @action
+    public addPanel(name: string) {
+
+        this._structure.panels = [
+            ...this._structure.panels,
+            {
+                cells: [],
+            },
+        ];
     }
 }
 

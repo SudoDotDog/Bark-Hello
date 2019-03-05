@@ -23,5 +23,6 @@ export const GatherAddName: React.FC<{}> = observer(() => {
         onEnter={editDialogStore.next}
         blur
         show={editDialogStore.isOpen}
+        onClose={() => editDialogStore.close()}
     />;
 });
