@@ -32,4 +32,4 @@ module.exports = SudooWebpack.create({
             to: BUILD_DIR,
         }], {}),
     ],
-}).development(8080);
+}).development(8085);

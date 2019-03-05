@@ -11,6 +11,8 @@ import { editDialogStore } from "../state/dialog";
 
 export const GatherAddName: React.FC<{}> = observer(() => {
 
+    // window.addEventListener('message', (event: MessageEvent) => console.log(event.data));
+
     return <NeonGather
         buttons={[{
             text: 'Submit',
