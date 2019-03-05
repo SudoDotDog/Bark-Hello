@@ -11,13 +11,7 @@ import { EditDialogResult } from "./dialog";
 class Store {
 
     @observable
-    private _structure: HelloStructure = {
-        panels: [{
-            cells: [],
-        }, {
-            cells: [],
-        }],
-    };
+    private _structure: HelloStructure = this._read();
 
     @computed
     public get panels(): HelloPanel[] {
@@ -38,6 +32,8 @@ class Store {
                 },
             ],
         };
+
+        this._save();
     }
 
     @action
@@ -49,6 +45,28 @@ class Store {
                 cells: [],
             },
         ];
+
+        this._save();
+    }
+
+    private _save() {
+
+        const json: string = JSON.stringify(this._structure);
+        localStorage.setItem('hello', json);
+    }
+
+    private _read(): HelloStructure {
+
+        const json: string | null = localStorage.getItem('hello');
+
+        if (!json) {
+
+            return {
+                panels: [],
+            };
+        }
+        const parsed: any = JSON.parse(json);
+        return parsed;
     }
 }
 
