@@ -4,6 +4,7 @@
  * @description Panel
  */
 
+import { NeonGridElement } from "@sudoo/neon/grid";
 import { NeonPaper } from "@sudoo/neon/paper";
 import { NeonTitle } from "@sudoo/neon/typography";
 import * as React from "react";
@@ -22,22 +23,24 @@ export type PanelProps = {
 
 export const Panel: React.FC<PanelProps> = (props: PanelProps) => {
 
-    return <NeonPaper>
-        <NeonTitle
-            removeBorder
-        >
-            Hello
-        </NeonTitle>
-        <div className={panel}>
-            {props.panel.cells.map((cell: HelloCell, index: number) =>
-                <Cell
-                    key={index}
-                    cell={cell}
-                />,
-            )}
-            <CellNew
-                onAdd={(value: EditDialogResult) => store.addCell(props.position, value)}
-            />
-        </div>
-    </NeonPaper>;
+    return (<NeonGridElement x={0} width={3}>
+        <NeonPaper>
+            <NeonTitle
+                removeBorder
+            >
+                Hello
+            </NeonTitle>
+            <div className={panel}>
+                {props.panel.cells.map((cell: HelloCell, index: number) =>
+                    <Cell
+                        key={index}
+                        cell={cell}
+                    />,
+                )}
+                <CellNew
+                    onAdd={(value: EditDialogResult) => store.addCell(props.position, value)}
+                />
+            </div>
+        </NeonPaper>
+    </NeonGridElement>);
 };
