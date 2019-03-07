@@ -8,29 +8,34 @@ import { NeonGridElement } from "@sudoo/neon/grid";
 import { NeonPaper } from "@sudoo/neon/paper";
 import { NeonTitle } from "@sudoo/neon/typography";
 import * as React from "react";
-import { panel } from "../../style/components/panel.scss";
-import { HelloCell, HelloPanel } from "../state/declare";
-import { EditDialogResult } from "../state/dialog";
-import { store } from "../state/store";
-import { Cell } from "./cell";
-import { CellNew } from "./cell-new";
+import { paper } from "../../style/components/panel.scss";
 
 export type PanelProps = {
 
-    readonly position: number;
-    readonly panel: HelloPanel;
+    readonly x?: number;
+    readonly y?: number;
+    readonly width?: number;
+    readonly height?: number;
+
+    readonly title?: string;
+    readonly children?: React.ReactNode;
 };
 
 export const Panel: React.FC<PanelProps> = (props: PanelProps) => {
 
-    return (<NeonGridElement x={0} width={3}>
-        <NeonPaper>
+    return (<NeonGridElement
+        x={props.x}
+        y={props.y}
+        width={props.width}
+        height={props.height}
+    >
+        <NeonPaper className={paper}>
             <NeonTitle
                 removeBorder
             >
-                Hello
+                {props.title}
             </NeonTitle>
-            <div className={panel}>
+            {/* <div className={panel}>
                 {props.panel.cells.map((cell: HelloCell, index: number) =>
                     <Cell
                         key={index}
@@ -40,7 +45,8 @@ export const Panel: React.FC<PanelProps> = (props: PanelProps) => {
                 <CellNew
                     onAdd={(value: EditDialogResult) => store.addCell(props.position, value)}
                 />
-            </div>
+            </div> */}
+            {props.children}
         </NeonPaper>
     </NeonGridElement>);
 };

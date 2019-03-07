@@ -1,1 +1,1 @@
-export const panel: string;
+export const paper: string;
