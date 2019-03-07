@@ -5,7 +5,7 @@
  */
 
 import { action, computed, observable } from "mobx";
-import { HelloPanel, HelloStructure } from "./declare";
+import { HelloStructure, PanelType } from "./declare";
 import { EditDialogResult } from "./dialog";
 
 class Store {
@@ -14,7 +14,7 @@ class Store {
     private _structure: HelloStructure = this._read();
 
     @computed
-    public get panels(): HelloPanel[] {
+    public get panels(): PanelType[] {
         return this._structure.panels;
     }
 
@@ -37,11 +37,14 @@ class Store {
     }
 
     @action
-    public addPanel(name: string) {
+    public addPanel(name: string, x: number, y: number) {
 
         this._structure.panels = [
             ...this._structure.panels,
             {
+                name,
+                x,
+                y,
                 cells: [],
             },
         ];

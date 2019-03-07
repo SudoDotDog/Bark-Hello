@@ -10,12 +10,15 @@ export type HelloCell = {
     url: string;
 };
 
-export type HelloPanel = {
+export type PanelType = {
 
+    name: string;
+    x: number;
+    y: number;
     cells: HelloCell[];
 };
 
 export type HelloStructure = {
 
-    panels: HelloPanel[];
+    panels: PanelType[];
 };
