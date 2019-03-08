@@ -35,17 +35,6 @@ export const Panel: React.FC<PanelProps> = (props: PanelProps) => {
             >
                 {props.title}
             </NeonTitle>
-            {/* <div className={panel}>
-                {props.panel.cells.map((cell: HelloCell, index: number) =>
-                    <Cell
-                        key={index}
-                        cell={cell}
-                    />,
-                )}
-                <CellNew
-                    onAdd={(value: EditDialogResult) => store.addCell(props.position, value)}
-                />
-            </div> */}
             {props.children}
         </NeonPaper>
     </NeonGridElement>);
