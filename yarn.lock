@@ -158,10 +158,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-router-config@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@types/react-router-config/-/react-router-config-1.1.1.tgz#4d72ff7003ed568e537a53703825b6e55d59c368"
-  integrity sha512-0VLeZnP6qO+8HRUGvpqVp/AB5/TcFYRJEfCLZX3amVsv3V9CNtfWNDHX5DG6ZdBF6uPfWkhZ4/GUYCsog65V7Q==
+"@types/react-router-config@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@types/react-router-config/-/react-router-config-1.1.2.tgz#990f668b1ad91cfaf31053f0d84a89f2887b87a0"
+  integrity sha512-dgKDQHbredbwy8fSVmGeAItb42Q3q5i2/5iNzhoB4ryV/IYiaKPV/spnJE5KMSb49aonhnXS1UoTGa1doJanQQ==
   dependencies:
     "@types/history" "*"
     "@types/react" "*"
