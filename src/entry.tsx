@@ -7,6 +7,7 @@
 import * as React from "react";
 import { Redirect, Route } from "react-router-dom";
 import { GatherAddName } from "./form/add-name";
+import { GlobalEdit } from "./form/global-edit";
 import { Grid } from "./page/grid";
 
 export class Entry extends React.Component {
@@ -18,6 +19,7 @@ export class Entry extends React.Component {
                 <Route path="/" exact render={() => <Redirect to="/grid" />} />
                 <Route path="/grid" component={Grid} />
                 <GatherAddName />
+                <GlobalEdit />
             </React.Fragment>
         );
     }

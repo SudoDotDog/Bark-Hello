@@ -4,12 +4,13 @@
  * @description Hello
  */
 
-import { SIZE } from "@sudoo/neon/declare";
+import { NeonButton } from "@sudoo/neon/button";
+import { WIDTH } from "@sudoo/neon/declare";
 import { INPUT_TYPE } from "@sudoo/neon/input/declare";
-import { NeonTextField } from "@sudoo/neon/text";
 import * as React from "react";
 import { Panel } from "../components/panel";
 import { editDialogStore } from "../state/dialog";
+import { globalEditDialogStore } from "../state/global-edit-store";
 import { store } from "../state/store";
 
 export type PanelProps = {
@@ -27,19 +28,23 @@ export const HelloPanel: React.FC<PanelProps> = (props: PanelProps) => {
         width={1}
         title="Hello"
     >
-        <button onClick={() => editDialogStore.open("Add Panel", {
-            x: INPUT_TYPE.NUMBER,
-            y: INPUT_TYPE.NUMBER,
-            name: {
-                autofocus: true,
-                display: 'Name',
-                type: INPUT_TYPE.TEXT,
-            },
-        }, (value: any) => store.addPanel(value.name, value.x, value.y))}>Add Panel</button>
-        <NeonTextField
-            label="Global Edit"
-            size={SIZE.RELATIVE}
-            value={JSON.stringify(store.panels)}
-        />
+        <NeonButton
+            width={WIDTH.FULL}
+            onClick={() => editDialogStore.open("Add Panel", {
+                x: INPUT_TYPE.NUMBER,
+                y: INPUT_TYPE.NUMBER,
+                name: {
+                    autofocus: true,
+                    display: 'Name',
+                    type: INPUT_TYPE.TEXT,
+                },
+            }, (value: any) => store.addPanel(value.name, value.x, value.y))}>
+            Add Panel
+        </NeonButton>
+        <NeonButton
+            width={WIDTH.FULL}
+            onClick={() => globalEditDialogStore.open()}>
+            Global Edit
+        </NeonButton>
     </Panel>);
 };
