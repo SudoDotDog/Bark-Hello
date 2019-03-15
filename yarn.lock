@@ -40,13 +40,13 @@
     enzyme "^3.9.0"
     enzyme-adapter-react-16 "^1.9.1"
 
-"@sudoo/react-force-mobx@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@sudoo/react-force-mobx/-/react-force-mobx-1.0.0.tgz#4c2c57c18b43882c79cff2e037ae5d7c17927acc"
-  integrity sha512-fmnH3r5aQmXZ6r28gt5NrHUoGMhgIwJZWcp1Z0hyTFHDCgVvBym/SURD8PmlTO7C1HSITzL6Pofz48mopb4xEA==
+"@sudoo/react-force-mobx@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@sudoo/react-force-mobx/-/react-force-mobx-1.1.0.tgz#0bbaaf979236f45d0be0054a92e15ea1b677b439"
+  integrity sha512-09jRBymR0HonDsCSZXxkdQXCdeDI3IbBflP1VYkVBr/HV4SssZkSbnSwGKOFKVea+Y6iKWjNnKLA7+PA9s70BA==
   dependencies:
-    mobx "^5.9.0"
-    mobx-react "^5.4.3"
+    mobx "5.9.0"
+    mobx-react "5.4.3"
 
 "@sudoo/react-force@^1.3.1":
   version "1.3.1"
@@ -4065,7 +4065,7 @@ mkdirp@0.5.1, mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdi
   dependencies:
     minimist "0.0.8"
 
-mobx-react@^5.4.3:
+mobx-react@5.4.3:
   version "5.4.3"
   resolved "https://registry.yarnpkg.com/mobx-react/-/mobx-react-5.4.3.tgz#6709b7dd89670c40e9815914ac2ca49cc02bfb47"
   integrity sha512-WC8yFlwvJ91hy8j6CrydAuFteUafcuvdITFQeHl3LRIf5ayfT/4W3M/byhEYD2BcJWejeXr8y4Rh2H26RunCRQ==
@@ -4073,7 +4073,7 @@ mobx-react@^5.4.3:
     hoist-non-react-statics "^3.0.0"
     react-lifecycles-compat "^3.0.2"
 
-mobx@^5.9.0:
+mobx@5.9.0:
   version "5.9.0"
   resolved "https://registry.yarnpkg.com/mobx/-/mobx-5.9.0.tgz#a08edd7132787f771409c9c33788a5df66ff7ce7"
   integrity sha512-D3mY1uM3H9BP5duk5tTanrOq92yqetYKsprPJWvkKDrbs+fro59xrpWX+vtr10YoLgJIFz+a4A8lI+4YtqmCUQ==
